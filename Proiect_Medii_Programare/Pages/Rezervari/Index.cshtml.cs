@@ -12,6 +12,7 @@ using Proiect_Medii_Programare.Models;
 
 namespace Proiect_Medii_Programare.Pages.Rezervari
 {
+    [Authorize(Roles = "Admin")]
 
     public class IndexModel : PageModel
     {
@@ -25,8 +26,17 @@ namespace Proiect_Medii_Programare.Pages.Rezervari
 
         public IList<Rezervare> Rezervare { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int? clientId)
         {
+            IQueryable<Rezervare> rezervariQuery = _context.Rezervare;
+
+            if (clientId.HasValue)
+            {
+                rezervariQuery = rezervariQuery.Where(r => r.ClientID == clientId.Value);
+            }
+
+            
+            Rezervare = await rezervariQuery.ToListAsync();
 
             if (_context.Rezervare != null)
             {

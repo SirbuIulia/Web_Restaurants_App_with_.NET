@@ -6,28 +6,34 @@
 
 <div class="container mt-5">
     <div class="text-center">
-        <h1 class="display-4">Bine ai venit!</h1>
+        <h1 class="display-4 mb-4">Bine ai venit!</h1>
     </div>
 </div>
 <p>
+
 <div class="container">
     <div class="row">
             <div class="col-md-6">
                 <section class="mb-4">
                     <h2>Descoperă Restaurantele Noastre</h2>
-                    <p>Ofertăm o varietate de restaurante cu bucate delicioase. Explorează recenziile clientilor nostri și alege locația potrivită pentru tine.</p>
+                    <p>Ofertăm o varietate de restaurante cu bucate delicioase. Alege locația potrivită pentru tine!</p>
                     <a asp-page="/Restaurante/Index" class="btn btn-info">Vezi Restaurantele</a>
                 </section>
             </div>
         <div class="col-md-6">
             <section class="mb-4">
-                <p>
-                <h2>Rezervările Tale</h2>
-                <p>Verifică și gestionează rezervările tale recente. Nu ai încă o rezervare? Fă una acum!</p>
-                <a asp-page="/Rezervari/Index" class="btn btn-primary">Fă o Rezervare</a>
+                <h2>Rezervări</h2>
+                <p>Planifica-ti iesirile cu prietenii din timp!Nu ai încă o rezervare? Fă una acum!</p>
+                <a asp-page="/Rezervari/Create" class="btn btn-primary">Fă o Rezervare</a>
             </section>
         </div>
-        
+            <div class="col-md-6" style="align-content: center;">
+                <section class="mb-4" >
+                        <h2>Recenzii</h2>
+                    <p>Vezi toate recenziile celor mai bune restaurante din oras.</p>
+                    <a asp-page="/Recenzii/Index" class="btn btn-primary">Vezi Recenziile</a>
+                </section>
+            </div>
     </div>
 
     <div class="row">

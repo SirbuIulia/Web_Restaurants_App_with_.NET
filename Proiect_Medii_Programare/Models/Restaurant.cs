@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Policy;
 
 namespace Proiect_Medii_Programare.Models
@@ -19,22 +21,9 @@ namespace Proiect_Medii_Programare.Models
         public string Website { get; set; }
 
 
-        //  private List<Recenzie> recenzii = new List<Recenzie>();
-        //public double RatingTotal
-        //        {
-
-        //          get
-        //        {
-        //          if (recenzii.Count == 0)
-        //            return 0; // Pentru a evita împărțirea la zero
-
-        // Calculează scorul mediu
-        //        double total = recenzii.Sum(r => r.Rating);
-        //      return total / recenzii.Count;
-        //}
-        //}
         [Range(0, 5, ErrorMessage = "Ratingul trebuie să fie între 0 și 5")]
         public double RatingTotal { get; set; }
+        
 
         public ICollection<Rezervare>? Rezervari { get; set; }
       

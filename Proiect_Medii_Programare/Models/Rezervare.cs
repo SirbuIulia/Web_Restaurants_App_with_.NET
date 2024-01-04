@@ -18,8 +18,9 @@ namespace Proiect_Medii_Programare.Models
         [Required(ErrorMessage = "Numărul de persoane este obligatoriu.")]
         [Range(1, int.MaxValue, ErrorMessage = "Numărul de persoane trebuie să fie cel puțin 1.")]
         public int NumarPersoane { get; set; }
+        public DateTime DataRezervare => Data.Date.Add(Ora);
 
-       public int? ClientID { get; set; }
+        public int? ClientID { get; set; }
        public Client? Client { get; set; }
 
         public int? RestaurantID { get; set; }

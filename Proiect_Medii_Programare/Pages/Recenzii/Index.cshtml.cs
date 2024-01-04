@@ -20,7 +20,7 @@ namespace Proiect_Medii_Programare.Pages.Recenzii
         {
             _context = context;
         }
-
+       // public Restaurant SelectedRestaurant { get; set; }
         public IList<Recenzie> Recenzie { get; set; } = default!;
         public RecenzieIndexData RecenzieData { get; set; }
         public int RecenzieID
@@ -28,6 +28,7 @@ namespace Proiect_Medii_Programare.Pages.Recenzii
             get; set;
         }
         public int RestaurantID { get; set; }
+
 
 
         public async Task OnGetAsync(int? id)

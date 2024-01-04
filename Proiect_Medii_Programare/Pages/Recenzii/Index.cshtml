@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-
+   
 <table class="table">
     <thead>
         <tr>
@@ -27,7 +27,11 @@
     <tbody>
         @foreach (var item in Model.RecenzieData.Recenzii)
         {
-            string selectedRow = (item.ID == Model.RecenzieID) ? "table-success" : "";
+            string selectedRow = "";
+            if (item.ID == Model.RecenzieID)
+            {
+                selectedRow = "table-success";
+            }
             <tr class="@selectedRow">
                 <td>
                     @Html.DisplayFor(modelItem => item.Restaurant.Nume)
@@ -51,6 +55,32 @@
         }
     </tbody>
 </table>
+
+@if (Model.RecenzieData.Restaurante != null)
+{
+    <h3>Ratings for Selected Restaurants</h3>
+<table class="table">
+    @foreach (var restaurant in Model.RecenzieData.Restaurante)
+    {
+        string selectedRow = "";
+        if (restaurant.ID == Model.RecenzieID)
+        {
+            selectedRow = "table-success";
+        }
+        <tr class="@selectedRow">
+            <td>
+                @{
+                    foreach (var review in restaurant.Recenzii)
+                    {
+                        @review.Rating @:  @review.Comentariu
+                        <br />
+                    }
+                }
+            </td>
+        </tr>
+    }
+</table>
+}
 
 <p>
     <a asp-page="Create">Creeaza</a>

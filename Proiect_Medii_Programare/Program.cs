@@ -18,7 +18,9 @@ builder.Services.AddRazorPages(options =>
     options.Conventions.AllowAnonymousToPage("/Restaurante/Index");
     options.Conventions.AllowAnonymousToPage("/Restaurante/Details");
     options.Conventions.AuthorizeFolder("/Clienti", "AdminPolicy");
-   
+    options.Conventions.AuthorizeFolder("/Rezervari/Index", "AdminPolicy");
+    ;
+
 
 });
 

@@ -33,5 +33,6 @@ namespace Proiect_Medii_Programare.Models
         public ICollection<Rezervare>? Rezervari { get; set; }
 
         public ICollection<Recenzie>? Recenzii { get; set; }
+        
     }
 }
