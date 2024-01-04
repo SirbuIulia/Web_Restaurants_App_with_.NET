@@ -1,0 +1,67 @@
+﻿@page
+@model Proiect_Medii_Programare.Pages.Rezervari.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rezervare[0].Client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rezervare[0].Restaurant.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rezervare[0].Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rezervare[0].Ora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rezervare[0].NumarPersoane)
+            </th>
+           
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Rezervare) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurant.Nume)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ora)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumarPersoane)
+            </td>
+                
+               
+
+
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editeaza</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <a asp-page="Create">Creeaza</a>
+</p>

@@ -1,0 +1,57 @@
+﻿@page "{id:int?}"
+@model Proiect_Medii_Programare.Pages.Recenzii.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Recenzie[0].Restaurant.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recenzie[0].Comentariu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recenzie[0].Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recenzie[0].Data)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.RecenzieData.Recenzii)
+        {
+            string selectedRow = (item.ID == Model.RecenzieID) ? "table-success" : "";
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurant.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comentariu)
+                </td>
+                <td>
+                    <div class="rating-text">@item.Rating.ToString("0")/5</div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    <a asp-page="./Index" asp-route-id="@item.ID">Selecteaza</a> |
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Editeaza</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-page="Create">Creeaza</a>
+</p>

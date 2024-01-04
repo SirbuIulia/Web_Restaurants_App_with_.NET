@@ -1,0 +1,49 @@
+﻿@page
+@model Proiect_Medii_Programare.Pages.Recenzii.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4>Recenzie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Recenzie.RestaurantID" class="control-label">Nume Restaurant</label>
+                <select asp-for="Recenzie.RestaurantID" class="form-control" asp-items="ViewBag.RestaurantID">
+                </select>
+                <span asp-validation-for="Recenzie.RestaurantID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recenzie.Comentariu" class="control-label"></label>
+                <input asp-for="Recenzie.Comentariu" class="form-control" />
+                <span asp-validation-for="Recenzie.Comentariu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recenzie.Rating" class="control-label"></label>
+                <input asp-for="Recenzie.Rating" class="form-control" />
+                <span asp-validation-for="Recenzie.Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recenzie.Data" class="control-label"></label>
+                <input asp-for="Recenzie.Data" class="form-control" />
+                <span asp-validation-for="Recenzie.Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Inapoi la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

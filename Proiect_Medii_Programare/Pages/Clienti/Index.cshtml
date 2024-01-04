@@ -1,0 +1,53 @@
+﻿@page
+@model Proiect_Medii_Programare.Pages.Clienti.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    //Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Prenume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].NumeFamilie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].NrTelefon)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Client) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeFamilie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrTelefon)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editeaza</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

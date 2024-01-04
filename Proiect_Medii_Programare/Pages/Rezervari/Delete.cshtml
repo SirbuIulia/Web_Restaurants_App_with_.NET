@@ -1,0 +1,53 @@
+﻿@page
+@model Proiect_Medii_Programare.Pages.Rezervari.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h3>Esti sigur ca vrei sa stergi asta?</h3>
+<div>
+    <h4>Rezervare</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rezervare.RestaurantID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rezervare.RestaurantID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rezervare.ClientID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rezervare.ClientID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rezervare.Data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rezervare.Data)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rezervare.Ora)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rezervare.Ora)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rezervare.NumarPersoane)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rezervare.NumarPersoane)
+        </dd>
+       
+       
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Rezervare.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Inapoi la lista</a>
+    </form>
+</div>

@@ -1,0 +1,53 @@
+﻿@page
+@model Proiect_Medii_Programare.Pages.Restaurante.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4>Restaurant</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Restaurant.Nume" class="control-label"></label>
+                <input asp-for="Restaurant.Nume" class="form-control" />
+                <span asp-validation-for="Restaurant.Nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Restaurant.Adresa" class="control-label"></label>
+                <input asp-for="Restaurant.Adresa" class="form-control" />
+                <span asp-validation-for="Restaurant.Adresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Restaurant.NrTelefon" class="control-label"></label>
+                <input asp-for="Restaurant.NrTelefon" class="form-control" />
+                <span asp-validation-for="Restaurant.NrTelefon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Restaurant.Website" class="control-label"></label>
+                <input asp-for="Restaurant.Website" class="form-control" />
+                <span asp-validation-for="Restaurant.Website" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Restaurant.RatingTotal" class="control-label"></label>
+                <input asp-for="Restaurant.RatingTotal" class="form-control" />
+                <span asp-validation-for="Restaurant.RatingTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Inapoi la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,43 @@
+﻿@page
+@model Proiect_Medii_Programare.Pages.Clienti.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalii</h1>
+
+<div>
+    <h4>Client</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Client.Prenume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Client.Prenume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Client.NumeFamilie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Client.NumeFamilie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Client.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Client.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Client.NrTelefon)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Client.NrTelefon)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Client?.ID">Editeaza</a> |
+    <a asp-page="./Index">Inapoi la lista</a>
+</div>

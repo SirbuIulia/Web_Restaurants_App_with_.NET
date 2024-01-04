@@ -1,0 +1,61 @@
+﻿@page
+@model Proiect_Medii_Programare.Pages.Restaurante.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].Adresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].NrTelefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].Website)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].RatingTotal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Restaurant) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrTelefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Website)
+            </td>
+
+                <td>
+                    <div class="rating-text">@item.RatingTotal.ToString("0.0")/5</div>
+                </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editeaza</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<p>
+    <a asp-page="Create">Creeaza</a>
+</p>
