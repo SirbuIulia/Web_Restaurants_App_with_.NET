@@ -4,16 +4,29 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Gaseste Restaurantul dupa Nume/Adresa:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
 
 <table class="table">
     <thead>
         <tr>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NumeSort">
                 @Html.DisplayNameFor(model => model.Restaurant[0].Nume)
+                </a>
             </th>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.AdresaSort">
                 @Html.DisplayNameFor(model => model.Restaurant[0].Adresa)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Restaurant[0].NrTelefon)
