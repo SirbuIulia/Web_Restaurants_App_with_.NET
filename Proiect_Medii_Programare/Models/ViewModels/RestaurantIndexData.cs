@@ -3,9 +3,9 @@ using System.Security.Policy;
 
 namespace Proiect_Medii_Programare.Models.ViewModels
 {
-    public class RecenzieIndexData
+    public class RestaurantIndexData
     {
-        public IEnumerable<Recenzie> Recenzii { get; set; }
         public IEnumerable<Restaurant> Restaurante { get; set; }
+        public IEnumerable<Recenzie> Recenzii { get; set; }
     }
 }

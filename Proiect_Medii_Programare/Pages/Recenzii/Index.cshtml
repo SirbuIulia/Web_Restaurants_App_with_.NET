@@ -1,4 +1,4 @@
-﻿@page "{id:int?}"
+﻿@page 
 @model Proiect_Medii_Programare.Pages.Recenzii.IndexModel
 
 @{
@@ -25,14 +25,10 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.RecenzieData.Recenzii)
+        @foreach (var item in Model.Recenzie)
         {
-            string selectedRow = "";
-            if (item.ID == Model.RecenzieID)
-            {
-                selectedRow = "table-success";
-            }
-            <tr class="@selectedRow">
+            
+            <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Restaurant.Nume)
                 </td>
@@ -46,7 +42,7 @@
                     @Html.DisplayFor(modelItem => item.Data)
                 </td>
                 <td>
-                    <a asp-page="./Index" asp-route-id="@item.ID">Selecteaza</a> |
+     
                     <a asp-page="./Edit" asp-route-id="@item.ID">Editeaza</a> |
                     <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
                     <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
@@ -56,31 +52,6 @@
     </tbody>
 </table>
 
-@if (Model.RecenzieData.Restaurante != null)
-{
-    <h3>Ratings for Selected Restaurants</h3>
-<table class="table">
-    @foreach (var restaurant in Model.RecenzieData.Restaurante)
-    {
-        string selectedRow = "";
-        if (restaurant.ID == Model.RecenzieID)
-        {
-            selectedRow = "table-success";
-        }
-        <tr class="@selectedRow">
-            <td>
-                @{
-                    foreach (var review in restaurant.Recenzii)
-                    {
-                        @review.Rating @:  @review.Comentariu
-                        <br />
-                    }
-                }
-            </td>
-        </tr>
-    }
-</table>
-}
 
 <p>
     <a asp-page="Create">Creeaza</a>

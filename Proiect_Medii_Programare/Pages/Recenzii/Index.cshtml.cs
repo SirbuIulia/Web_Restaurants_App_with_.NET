@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Proiect_Medii_Programare.Data;
 using Proiect_Medii_Programare.Models;
-using Proiect_Medii_Programare.Models.ViewModels;
+
 
 namespace Proiect_Medii_Programare.Pages.Recenzii
 {
@@ -22,7 +22,7 @@ namespace Proiect_Medii_Programare.Pages.Recenzii
         }
        // public Restaurant SelectedRestaurant { get; set; }
         public IList<Recenzie> Recenzie { get; set; } = default!;
-        public RecenzieIndexData RecenzieData { get; set; }
+        
         public int RecenzieID
         {
             get; set;
@@ -33,24 +33,13 @@ namespace Proiect_Medii_Programare.Pages.Recenzii
 
         public async Task OnGetAsync(int? id)
         {
-            RecenzieData = new RecenzieIndexData();
-            RecenzieData.Recenzii = await _context.Recenzie
-              .Include(i => i.Restaurant)
-            //.ThenInclude(c => c.Recenzie)
-             .OrderBy(i => i.Rating)
-             .Include(b => b.Client).ToListAsync();
 
-            if (id != null)
-            {
-                RecenzieID = id.Value;
-                Recenzie recenzie = RecenzieData.Recenzii
-                   .Where(i => i.ID == id.Value)
-                   .Single();
+            Recenzie = await _context.Recenzie
+                     .Include(b => b.Restaurant)
+                     .Include(b => b.Client)
+                     .ToListAsync();
 
-
-
-
-            }
+       
         }
     }
 }

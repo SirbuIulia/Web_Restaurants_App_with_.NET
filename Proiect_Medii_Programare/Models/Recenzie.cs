@@ -14,13 +14,9 @@ namespace Proiect_Medii_Programare.Models
 
         [DataType(DataType.Date)]
         public DateTime Data { get; set; }
-        public Recenzie()
-        {
-            Data = DateTime.Now;
-        }
+      
         public int? ClientID { get; set; }
         public Client? Client { get; set; }
-        // public ICollection<Restaurant>? Restaurante { get; set; }
       
         public int? RestaurantID { get; set; }
         public Restaurant? Restaurant { get; set; }

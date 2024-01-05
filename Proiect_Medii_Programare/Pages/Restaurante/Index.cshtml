@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int?}"
 @model Proiect_Medii_Programare.Pages.Restaurante.IndexModel
 
 @{
@@ -34,6 +34,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Restaurant[0].Website)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Restaurant[0].RatingTotal)
             </th>
@@ -41,8 +42,13 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Restaurant) {
-        <tr>
+@foreach (var item in Model.RestaurantData.Restaurante) {
+            string selectedRow = "";
+            if (item.ID == Model.RestaurantID)
+            {
+                selectedRow = "table-success";
+            }
+           <tr class="@selectedRow">
             <td>
                 @Html.DisplayFor(modelItem => item.Nume)
             </td>
@@ -55,11 +61,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Website)
             </td>
-
+            
                 <td>
                     <div class="rating-text">@item.RatingTotal.ToString("0.0")/5</div>
                 </td>
             <td>
+                    <a asp-page="./Index" asp-route-id="@item.ID">Select</a> |
                 <a asp-page="./Edit" asp-route-id="@item.ID">Editeaza</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
@@ -68,6 +75,36 @@
 }
     </tbody>
 </table>
+
+@if (Model.RestaurantData.Recenzii != null)
+{
+    <h3>Recenziile Restaurantului Selectat</h3>
+    <table class="table">
+
+        @foreach (var item in Model.RestaurantData.Restaurante)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.RestaurantID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+
+                <td>
+                    @{
+                        foreach (var b in item.Recenzii)
+                        {
+
+                            @b.Rating @: @b.Comentariu
+
+                            <br />
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}
 
 <p>
     <a asp-page="Create">Creeaza</a>
