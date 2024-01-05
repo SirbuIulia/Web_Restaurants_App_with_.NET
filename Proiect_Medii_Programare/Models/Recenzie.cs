@@ -9,7 +9,7 @@ namespace Proiect_Medii_Programare.Models
         [MaxLength(500, ErrorMessage = "Comentariul nu poate depăși 500 de caractere.")]
         public string Comentariu { get; set; }
 
-        [Range(0, 5, ErrorMessage = "Ratingul trebuie să fie între 0 și 5")]
+        [Range(0, 5, ErrorMessage = "Ratingul trebuie să fie între 0 și 5.")]
         public int Rating { get; set; }
 
         [DataType(DataType.Date)]

@@ -10,7 +10,7 @@
             Gaseste Restaurantul dupa Nume/Adresa:
             <input type="text" name="SearchString" value="@Model.CurrentFilter" />
             <input type="submit" value="Search" class="btn btn-primary" /> |
-            <a asp-page="./Index">Back to full List</a>
+            <a asp-page="./Index">Inapoi la lista completa</a>
         </p>
     </div>
 </form>
@@ -19,14 +19,14 @@
     <thead>
         <tr>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.NumeSort">
+               
                 @Html.DisplayNameFor(model => model.Restaurant[0].Nume)
-                </a>
+                
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.AdresaSort">
+                
                 @Html.DisplayNameFor(model => model.Restaurant[0].Adresa)
-                </a>
+                
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Restaurant[0].NrTelefon)
@@ -66,7 +66,7 @@
                     <div class="rating-text">@item.RatingTotal.ToString("0.0")/5</div>
                 </td>
             <td>
-                    <a asp-page="./Index" asp-route-id="@item.ID">Select</a> |
+                <a asp-page="./Index" asp-route-id="@item.ID" asp-route-SearchString="@Model.CurrentFilter">Select</a> |
                 <a asp-page="./Edit" asp-route-id="@item.ID">Editeaza</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>

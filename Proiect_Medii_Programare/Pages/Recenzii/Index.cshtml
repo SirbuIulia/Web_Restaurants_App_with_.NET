@@ -10,7 +10,9 @@
     <thead>
         <tr>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NumeSort">
                 @Html.DisplayNameFor(model => model.Recenzie[0].Restaurant.Nume)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Recenzie[0].Comentariu)
@@ -19,7 +21,9 @@
                 @Html.DisplayNameFor(model => model.Recenzie[0].Rating)
             </th>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DataSort">
                 @Html.DisplayNameFor(model => model.Recenzie[0].Data)
+                </a>
             </th>
             <th></th>
         </tr>

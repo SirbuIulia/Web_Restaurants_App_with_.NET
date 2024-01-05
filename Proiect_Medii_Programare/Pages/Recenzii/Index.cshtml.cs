@@ -20,26 +20,45 @@ namespace Proiect_Medii_Programare.Pages.Recenzii
         {
             _context = context;
         }
-       // public Restaurant SelectedRestaurant { get; set; }
+        // public Restaurant SelectedRestaurant { get; set; }
         public IList<Recenzie> Recenzie { get; set; } = default!;
-        
+
         public int RecenzieID
         {
             get; set;
         }
         public int RestaurantID { get; set; }
 
+        public string NumeSort { get; set; }
+        public string DataSort { get; set; }
 
-
-        public async Task OnGetAsync(int? id)
+        public async Task OnGetAsync(string sortOrder)
         {
+            NumeSort = String.IsNullOrEmpty(sortOrder) ? "nume_asc" : "";
+
+            DataSort = sortOrder == "data_desc" ? "data_desc" : "";
+           
 
             Recenzie = await _context.Recenzie
                      .Include(b => b.Restaurant)
                      .Include(b => b.Client)
                      .ToListAsync();
 
-       
+            switch (sortOrder)
+            {
+                case "nume_asc":
+                    Recenzie = Recenzie.OrderBy(s =>
+                   s.Restaurant.Nume).ToList();
+                    break;
+                case "data_desc":
+                    Recenzie = Recenzie.OrderByDescending(s =>
+                   s.Data).ToList();
+                    break;
+                default:
+                    Recenzie = Recenzie.OrderByDescending(s => s.Data).ToList();
+                    break;
+
+            }
         }
     }
 }
