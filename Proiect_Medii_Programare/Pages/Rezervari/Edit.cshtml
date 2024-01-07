@@ -14,8 +14,8 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Rezervare.ID" />
             <div class="form-group">
-                <label asp-for="Rezervare.ClientID" class="control-label"></label>
-                <select asp-for="Rezervare.ClientID" class="form-control" asp-items="ViewBag.MemberID"></select>
+                <label asp-for="Rezervare.ClientID" class="control-label">Nume Client</label>
+                <select asp-for="Rezervare.ClientID" class="form-control" asp-items="ViewBag.ClientID"></select>
                 <span asp-validation-for="Rezervare.ClientID" class="text-danger"></span>
             </div>
             <div class="form-group">
