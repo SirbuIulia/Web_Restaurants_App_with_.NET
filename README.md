@@ -4,7 +4,7 @@ This project provides a comprehensive and efficient solution for managing reserv
 
 🛠️ Technologies Used
 
-Programming Language: C#
+Programming Language: **C#**
 
-Framework: .NET for web applications
+Framework: **.NET** for web applications
 
