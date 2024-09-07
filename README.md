@@ -1,8 +1,6 @@
-Sistem de Gestiune a Rezervărilor pentru Restaurante
+#Project Description:
+This project is a comprehensive and efficient solution for managing reservations in the restaurant industry. Developed using .NET technology, this web application offers advanced features to optimize the reservation process and enhance the experience for both customers and restaurant staff.
 
-Descriere Proiect:
-Acest proiect reprezintă o soluție completă și eficientă pentru gestionarea rezervărilor în mediul restaurantelor. Dezvoltat folosind tehnologia .NET, această aplicație web oferă funcționalități avansate pentru optimizarea procesului de rezervare și îmbunătățirea experienței clienților și a personalului din restaurante.
-
-Tehnologii Folosite:
-Proiectul este dezvoltat în limbajul de programare C# folosind framework-ul .NET pentru aplicații web. 
+#Technologies Used:
+The project is developed in C# programming language using the .NET framework for web applications.
 
